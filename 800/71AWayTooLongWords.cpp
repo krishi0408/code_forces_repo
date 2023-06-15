@@ -1,20 +1,37 @@
 #include<iostream>
+#include<vector>
 using namespace std;
-
-
-string weight_watermelon(int w)
+string get_words(const string& word)
 {
-    if (w==2)
-    return "NO";
-    else if (w%2==0) 
-    return "YES";
-    else
-    return "NO";
+    if(word.length()>10)
+    {
+        return word[0] + to_string(word.length()-2) + word[word.length()-1];
+    }
+    else{
+        return word;
+    }
 }
 
 int main()
 {
-    int w;
-    cin>>w;
-    cout<<weight_watermelon(w);
+    int n;
+    cin>>n;
+    vector<string> words(n);
+    for (int i=0;i<n;i++)
+    {
+        cin>>words[i];
+    }
+    vector<string> abbreviations;
+    for(string& word: words)
+    {
+        string abbreviation= get_words(word);
+        abbreviations.push_back(abbreviation);
+
+    }
+    for(string& abbreviation : abbreviations)
+    {
+        cout<<abbreviation<<endl;
+    }
+    return 0;
+
 }
