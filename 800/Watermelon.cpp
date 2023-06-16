@@ -8,42 +8,23 @@
 // Output
 // Print YES, if the boys can divide the watermelon into two parts, each of them weighing even number of kilos; and NO in the opposite case.
 
-
-
 #include<iostream>
-#include<vector>
 using namespace std;
-string get_words(const string& word)
+
+
+string weight_watermelon(int w)
 {
-    if(word.length()>10)
-    {
-        return word[0] + to_string(word.length()-2) + word[word.length()-1];
-    }
-    else{
-        return word;
-    }
+    if (w==2)
+    return "NO";
+    else if (w%2==0) 
+    return "YES";
+    else
+    return "NO";
 }
 
 int main()
 {
-    int n;
-    cin>>n;
-    vector<string> words(n);
-    for (int i=0;i<n;i++)
-    {
-        cin>>words[i];
-    }
-    vector<string> abbreviations;
-    for(string& word: words)
-    {
-        string abbreviation= get_words(word);
-        abbreviations.push_back(abbreviation);
-
-    }
-    for(string& abbreviation : abbreviations)
-    {
-        cout<<abbreviation<<endl;
-    }
-    return 0;
-
+    int w;
+    cin>>w;
+    cout<<weight_watermelon(w);
 }
